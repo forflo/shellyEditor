@@ -4,7 +4,7 @@
 # Emacs and vim
 ##
 
-SUBDIRS=(
+SHELLYE_subdirs=(
 	"vim"
 	"emacs"
 )
