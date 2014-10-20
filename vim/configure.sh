@@ -13,6 +13,7 @@ shellyEditor_vim(){
   else
     # just for code cuteness. This case does not require
     # any action!
+   :
   fi
   
   ln -s $PWD/vim/dotVim ~/.vim || {
