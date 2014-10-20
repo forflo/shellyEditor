@@ -10,7 +10,7 @@ SHELLYE_subdirs=(
 
 shellyEditorMain(){
   for i in ${SHELLYE_subdirs[*]}; do
-    . $i/init.sh || {
+    . $i/configure.sh || {
       clog 1 "[shellyEditor_init()]" Sourcing of $i/init.sh failed!
       return 1
     }
