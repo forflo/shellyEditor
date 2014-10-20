@@ -8,10 +8,15 @@ SHELLYE_subdirs=(
   "emacs"
 )
 
-for i in ${SUBDIRS[*]}; do
-  . $i/init.sh || {
-    clog 1 "[shellyEditor_init()]" Sourcing of $i/init.sh failed!
-  }
-done
+shellyEditorMain(){
+  for i in ${SHELLYE_subdirs[*]}; do
+    . $i/init.sh || {
+      clog 1 "[shellyEditor_init()]" Sourcing of $i/init.sh failed!
+      return 1
+    }
+  done
+  
+  return 0
+}
 
-exit 0
+shellyEditorMain
