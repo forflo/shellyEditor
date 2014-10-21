@@ -1,16 +1,5 @@
 #!/bin/bash
 
-shellyEditor_init(){
-  type clog > /dev/null || {
-    echo "[shellyEditor_init()]" Could not find logging function. Will define one!
-    function clog(){
-      shift; echo "$@"; return 0
-    }
-  }
-
-  return 0
-}
-
 shellyEditor_vim(){
   if [ -e ~/.vim -a \( ! -L ~/.vim \) ]; then
     clog 1 "[shellyEditor_vim()]" ~/.vim exists but is no symbolic link. Won\'t remove!
@@ -56,18 +45,4 @@ shellyEditor_vim(){
   return 0
 }
 
-shellyEditor_main(){
-  shellyEditor_init || {
-    clog 1 "[shellyEditor_main()]" Could not initialize vim routines
-    return 1
-  }
-
-  shellyEditor_vim || {
-    clog 1 "[shellyEditor_main()]" Could not execute vim routines
-    return 1
-  }
-
-  return 0
-}
-
-shellyEditor_main
+shellyEditor_vim
