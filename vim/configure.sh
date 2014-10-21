@@ -28,7 +28,7 @@ shellyEditor_vim(){
   fi
 
   if [ -e ~/.vimrc -a \( ! -L ~/.vimrc \) ]; then
-    clog 1 "[shellyEditor_vim()]" .vimrc exists but is no symbolic link!
+    clog 1 "[shellyEditor_vim()]" .vimrc exists but is no symbolic link. Won\'t remove!
     return 1
   elif [ -L ~/.vimrc ]; then
     clog 2 "[shellyEditor_vim()]" .vimrc exists and is symbolic link! Removing...
